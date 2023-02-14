@@ -19,7 +19,7 @@ export const Navbar = () => {
           {isLog? (
             <>
               <li><Link to="/profile">Edit Profile</Link></li>
-              <li><Link to="/">New_Post</Link></li>
+              <li><Link to="/create">New_Post</Link></li>
             </>
           ) : (
             <>

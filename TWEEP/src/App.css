@@ -245,3 +245,19 @@ font-family: 'Lato', sans-serif;
 text-align:center ;
 
 }
+
+
+.post {
+  border: 1px solid gray;
+  border-radius: 8px;
+  background-color: #23332f;
+  display: flex;
+  justify-content: space-between;
+}
+
+.posts {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import { useAtom, useSetAtom } from 'jotai';
-import { isLogAtom, currentUserNameAtom, currentUserMailAtom } from '../../Atom/atom';
+import { isLogAtom, currentUserNameAtom, currentUserMailAtom, currentUserIdAtom } from '../../Atom/atom';
 
 export const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +16,7 @@ export const RegisterForm = () => {
   const [isLog, setIsLog] = useAtom(isLogAtom);
   const setCurrentUserName = useSetAtom(currentUserNameAtom);
   const setCurrentUserMail = useSetAtom(currentUserMailAtom);
+  const setCurrentUserId = useSetAtom(currentUserIdAtom);
 
   const navigate = useNavigate();
 
@@ -54,6 +55,7 @@ export const RegisterForm = () => {
       .then((response) => {
         setCurrentUserName(response.username);
         setCurrentUserMail(response.email);
+        setCurrentUserId(response.id);
       })
       .catch((error) => {
         console.error("Error:", error);

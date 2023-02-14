@@ -1,4 +1,4 @@
-import { currentUserNameAtom, currentUserMailAtom } from '../../Atom/atom';
+import { currentUserNameAtom, currentUserMailAtom, currentUserIdAtom } from '../../Atom/atom';
 import { useAtom, useAtomValue } from 'jotai';
 import Cookies from "js-cookie";
 
@@ -6,6 +6,7 @@ export const EditProfile = () => {
 
   const [userName, setUserName] = useAtom(currentUserNameAtom);
   const userMail = useAtomValue(currentUserMailAtom);
+  const userId = useAtomValue(currentUserIdAtom);
 
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
@@ -23,9 +24,7 @@ export const EditProfile = () => {
 
     const token = Cookies.get('token');
 
-    console.log("data username : " + data.username);
-
-    fetch(`http://localhost:1337/api/users/me`, {
+    fetch(`http://localhost:1337/api/users/${userId}`, {
       method: 'put',
       headers: {
         'Authorization': `Bearer ${token}`,
